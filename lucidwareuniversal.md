@@ -329,11 +329,13 @@ local function MTVSM_fake_script() -- Toggle.ToggleScript
 		teamcheck = not teamcheck
 		
 		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-            for i,v in pairs(v.Character:GetChildren()) do
-                if v.Name == "cham" then
-                    v:Destroy()
-                end
-            end
+            if v.Character then
+				for i,v in pairs(v.Character:GetChildren()) do
+					if v.Name == "cham" then
+						v:Destroy()
+					end
+				end
+			end
         end
 	end)
 	
